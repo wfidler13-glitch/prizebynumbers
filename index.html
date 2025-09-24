@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prize By Numbers - Paint, Scan, Win!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container">
+            <h1 class="logo">PRIZE BY NUMBERS</h1>
+            <nav class="nav-links">
+                <a href="#how-it-works">How It Works</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <a href="#buy-now" class="button primary-button">BUY NOW</a>
+            </nav>
+            <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section splash-bg">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="prize-tag">WIN UP TO $20,000!</div>
+                    <h2 class="hero-title">DREAM BIG.<br>PAINT SMALL.</h2>
+                    <p class="hero-tagline">The most rewarding way to relax. Complete the paint-by-number, reveal the hidden QR code, and instantly see what you've won. Every kit is a winner!</p>
+                    <a href="#buy-now" class="button primary-button large-button">GET YOUR KIT NOW</a>
+                </div>
+                <div class="hero-image-placeholder">
+                    </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="section">
+            <div class="container">
+                <h2 class="section-title">HOW IT WORKS</h2>
+                <div class="step-grid">
+                    <div class="step-card">
+                        <span class="step-number">1</span>
+                        <h3>PAINT</h3>
+                        <p>Relax and complete your beautiful paint-by-numbers canvas. It looks like abstract art, but it's much more...</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-number">2</span>
+                        <h3>REVEAL & SCAN</h3>
+                        <p>Once finished, the painted image is a scannable QR code! Use your phone to scan it and go to the prize site.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-number">3</span>
+                        <h3>WIN</h3>
+                        <p>Enter your unique kit code on the website and find out how much you’ve won—from **$1 to $20,000!**</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="section dark-section">
+            <div class="container">
+                <h2 class="section-title">THE KIT</h2>
+                <div class="pricing-card-container">
+                    <div class="pricing-card">
+                        <h3>PRIZE BY NUMBERS KIT</h3>
+                        <p class="price-tag">Starting at $29.99</p>
+                        <ul>
+                            <li>Premium Cotton Canvas (11"x14")</li>
+                            <li>Numbered Acrylic Paint Set</li>
+                            <li>3-Piece Brush Set</li>
+                            <li>The potential to win up to $20,000!</li>
+                            <li>Unique Prize Redemption Code (Inside)</li>
+                        </ul>
+                        <a href="#" id="buy-now" class="button primary-button">LINK TO SHOP</a>
+                    </div>
+                </div>
+                <p class="small-print">*Prize amounts range from \$1.00 to \$20,000. Every kit is a guaranteed winner.</p>
+            </div>
+        </section>
+
+        <section id="signup" class="section">
+            <div class="container">
+                <h2 class="section-title">DON'T MISS OUT!</h2>
+                <p class="section-subtitle">Get exclusive updates on new designs and special prize drops.</p>
+                <form id="signup-form" class="signup-form">
+                    <input type="email" name="email" placeholder="Email Address" required>
+                    <input type="tel" name="phone" placeholder="Phone Number (Optional)">
+                    <button type="submit" class="button primary-button large-button">GET UPDATES</button>
+                    <p class="form-message"></p>
+                </form>
+            </div>
+        </section>
+
+        <section id="faq" class="section dark-section">
+            <div class="container">
+                <h2 class="section-title">FAQ</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3 class="faq-question">Is every kit a winner?</h3>
+                        <p class="faq-answer">Yes! Every single Prize by Numbers kit contains a code that guarantees you'll win between $1.00 and $20,000.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Is this a lottery?</h3>
+                        <p class="faq-answer">No. This is a creative art product. The prize is an added bonus for completing the artwork. There is no purchase necessary for a chance to win. See full rules on our redemption site.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do I get my prize money?</h3>
+                        <p class="faq-answer">After you scan the QR code and enter your unique code, our redemption site will guide you through the process for claiming your cash prize.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">What is the highest amount I can win?</h3>
+                        <p class="faq-answer">The top prize is **$20,000**!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Prize By Numbers. All rights reserved. | <a href="#">Rules</a> | <a href="#">Privacy</a></p>
+        </div>
+    </footer>
+
+    <div id="mobile-menu" class="mobile-menu-overlay">
+        <a class="close-btn">&times;</a>
+        <a href="#hero">Home</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#buy-now" class="button primary-button">BUY NOW</a>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,424 @@
+/* --- VARIABLES & RESET --- */
+:root {
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-green: #37a84e; /* The 'PRIZE' banner green */
+    --color-red-splash: #e85d41; /* Red/Orange splatter */
+    --color-blue-splash: #41b9e8; /* Blue splatter */
+    --color-purple-splash: #a841e8; /* Purple splatter */
+    --font-primary: 'Bebas Neue', sans-serif;
+    --font-secondary: 'Anton', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--color-black);
+    background-color: var(--color-white);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- UTILITY CLASSES --- */
+.splash-bg {
+    /* Base for the splatter effect */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Simple way to add a chaotic, splattered border/background element */
+.splash-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1; /* Subtle overlay */
+    background-image: radial-gradient(circle at 10% 10%, var(--color-red-splash) 5px, transparent 5px),
+                      radial-gradient(circle at 70% 30%, var(--color-blue-splash) 4px, transparent 4px),
+                      radial-gradient(circle at 40% 80%, var(--color-purple-splash) 6px, transparent 6px),
+                      radial-gradient(circle at 90% 60%, var(--color-red-splash) 3px, transparent 3px);
+    background-size: 100px 100px;
+    z-index: -1;
+}
+
+.dark-section {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.dark-section .button.primary-button {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3 {
+    font-family: var(--font-secondary);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    line-height: 1;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-primary);
+}
+
+/* --- BUTTONS --- */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-family: var(--font-secondary);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    text-align: center;
+}
+
+.primary-button {
+    background-color: var(--color-green);
+    color: var(--color-white);
+    box-shadow: 4px 4px 0 var(--color-black);
+}
+
+.primary-button:hover {
+    background-color: #4ac061;
+    transform: translate(1px, 1px);
+    box-shadow: 3px 3px 0 var(--color-black);
+}
+
+.large-button {
+    padding: 15px 30px;
+    font-size: 1.8rem;
+    margin-top: 1.5rem;
+}
+
+/* --- HEADER / NAVBAR --- */
+.navbar {
+    background-color: var(--color-white);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 5px solid var(--color-black);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: var(--color-black);
+    line-height: 1;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    padding: 5px;
+}
+
+.menu-toggle {
+    display: none; /* Hide on desktop */
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-black);
+}
+
+/* --- HERO SECTION --- */
+#hero {
+    padding: 100px 0;
+    border-bottom: 5px solid var(--color-black);
+}
+
+.hero-content {
+    max-width: 600px;
+    margin: 0 auto; /* Center on mobile */
+    text-align: center;
+}
+
+.prize-tag {
+    background-color: var(--color-red-splash);
+    color: var(--color-white);
+    padding: 5px 15px;
+    font-size: 1.5rem;
+    display: inline-block;
+    transform: rotate(-3deg);
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-size: 6rem;
+    line-height: 0.9;
+    margin-bottom: 1rem;
+}
+
+.hero-tagline {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+/* --- GENERAL SECTIONS --- */
+.section {
+    padding: 80px 0;
+}
+
+/* --- HOW IT WORKS GRID --- */
+.step-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.step-card {
+    border: 5px solid var(--color-black);
+    padding: 30px;
+    background-color: var(--color-white);
+    box-shadow: 8px 8px 0 var(--color-green);
+    transition: transform 0.2s;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+}
+
+.step-number {
+    font-family: var(--font-secondary);
+    font-size: 3rem;
+    background-color: var(--color-red-splash);
+    color: var(--color-white);
+    display: inline-block;
+    padding: 5px 20px;
+    margin-bottom: 15px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); /* Simple badge shape */
+}
+
+.step-card h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.step-card p {
+    font-family: sans-serif;
+}
+
+/* --- PRICING SECTION --- */
+.pricing-card-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.pricing-card {
+    border: 5px solid var(--color-green);
+    background-color: var(--color-black);
+    padding: 40px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 10px 10px 0 var(--color-green);
+}
+
+.pricing-card h3 {
+    font-size: 2.5rem;
+    color: var(--color-green);
+}
+
+.price-tag {
+    font-size: 3rem;
+    color: var(--color-white);
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.pricing-card ul {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 30px;
+    font-family: sans-serif;
+}
+
+.pricing-card ul li {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--color-purple-splash);
+}
+
+.small-print {
+    text-align: center;
+    font-size: 0.9rem;
+    font-family: sans-serif;
+}
+
+/* --- SIGNUP FORM --- */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.signup-form input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: 3px solid var(--color-black);
+    font-family: sans-serif;
+}
+
+/* --- FAQ SECTION --- */
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    padding: 20px 0;
+    border-bottom: 2px solid var(--color-blue-splash);
+}
+
+.faq-question {
+    font-size: 1.5rem;
+    color: var(--color-green);
+}
+
+.faq-answer {
+    font-family: sans-serif;
+    line-height: 1.5;
+    margin-top: 10px;
+    color: var(--color-white);
+}
+
+/* --- FOOTER --- */
+footer {
+    padding: 20px 0;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    text-align: center;
+    font-size: 0.9rem;
+    font-family: sans-serif;
+}
+
+footer a {
+    text-decoration: underline;
+    color: var(--color-green);
+}
+
+/* --- MOBILE NAVIGATION --- */
+.mobile-menu-overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background-color: var(--color-black);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align: center;
+    border-right: 5px solid var(--color-green);
+}
+
+.mobile-menu-overlay a {
+    padding: 20px 8px;
+    text-decoration: none;
+    font-size: 2rem;
+    color: var(--color-white);
+    display: block;
+    transition: 0.3s;
+    font-family: var(--font-secondary);
+}
+
+.mobile-menu-overlay a:hover {
+    color: var(--color-green);
+}
+
+.mobile-menu-overlay .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 4rem;
+    cursor: pointer;
+    color: var(--color-white);
+}
+
+/* --- MEDIA QUERIES (MOBILE OPTIMIZATION) --- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide desktop links */
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger menu */
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-title {
+        font-size: 4rem;
+    }
+    
+    .hero-content {
+        /* Remove the effect of the desktop max-width to let it breathe */
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .hero-tagline {
+        font-size: 1.2rem;
+    }
+
+    .step-grid {
+        grid-template-columns: 1fr;
+    }
+}

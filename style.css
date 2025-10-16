@@ -36,29 +36,6 @@ a {
 }
 
 /* --- UTILITY CLASSES --- */
-.splash-bg {
-    /* Base for the splatter effect */
-    position: relative;
-    overflow: hidden;
-}
-
-/* Simple way to add a chaotic, splattered border/background element */
-.splash-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.1; /* Subtle overlay */
-    background-image: radial-gradient(circle at 10% 10%, var(--color-red-splash) 5px, transparent 5px),
-                      radial-gradient(circle at 70% 30%, var(--color-blue-splash) 4px, transparent 4px),
-                      radial-gradient(circle at 40% 80%, var(--color-purple-splash) 6px, transparent 6px),
-                      radial-gradient(circle at 90% 60%, var(--color-red-splash) 3px, transparent 3px);
-    background-size: 100px 100px;
-    z-index: -1;
-}
-
 .dark-section {
     background-color: var(--color-black);
     color: var(--color-white);
@@ -67,6 +44,43 @@ a {
 .dark-section .button.primary-button {
     background-color: var(--color-white);
     color: var(--color-black);
+}
+
+/* --- NEW SPLATTER BACKGROUND CLASS --- */
+/* This creates a large, visible, repeating dot pattern similar to the box art */
+.paint-splatter-bg {
+    position: relative;
+    overflow: hidden;
+    z-index: 1; 
+}
+
+.paint-splatter-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.25; /* Making it more visible */
+    z-index: -1;
+    
+    /* Creating a distinct, repeating pattern of colored dots */
+    background-image: 
+        /* Red Dots */
+        radial-gradient(circle at 10% 10%, var(--color-red-splash) 6px, transparent 6px),
+        radial-gradient(circle at 80% 40%, var(--color-red-splash) 4px, transparent 4px),
+        /* Blue Dots */
+        radial-gradient(circle at 30% 70%, var(--color-blue-splash) 8px, transparent 8px),
+        radial-gradient(circle at 60% 20%, var(--color-blue-splash) 5px, transparent 5px),
+        /* Purple Dots */
+        radial-gradient(circle at 50% 90%, var(--color-purple-splash) 7px, transparent 7px),
+        radial-gradient(circle at 90% 5%, var(--color-purple-splash) 3px, transparent 3px),
+        /* Green Dots */
+        radial-gradient(circle at 20% 40%, var(--color-green) 5px, transparent 5px);
+        
+    background-size: 200px 200px; /* How large the repeating canvas is */
+    background-repeat: repeat;
+    filter: saturate(1.5); /* Boost the color intensity */
 }
 
 /* --- TYPOGRAPHY --- */
@@ -103,16 +117,16 @@ h1, h2, h3 {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.1s;
     text-align: center;
+    box-shadow: 4px 4px 0 var(--color-black); 
 }
 
 .primary-button {
     background-color: var(--color-green);
     color: var(--color-white);
-    box-shadow: 4px 4px 0 var(--color-black);
 }
 
 .primary-button:hover {
-    background-color: #4ac061;
+    background-color: #4ac061; 
     transform: translate(1px, 1px);
     box-shadow: 3px 3px 0 var(--color-black);
 }
@@ -158,7 +172,7 @@ h1, h2, h3 {
 }
 
 .menu-toggle {
-    display: none; /* Hide on desktop */
+    display: none; 
     font-size: 2rem;
     background: none;
     border: none;
@@ -174,8 +188,10 @@ h1, h2, h3 {
 
 .hero-content {
     max-width: 600px;
-    margin: 0 auto; /* Center on mobile */
+    margin: 0 auto;
     text-align: center;
+    position: relative; 
+    z-index: 2; /* Higher than splatter background */
 }
 
 .prize-tag {
@@ -233,7 +249,7 @@ h1, h2, h3 {
     display: inline-block;
     padding: 5px 20px;
     margin-bottom: 15px;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); /* Simple badge shape */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); 
 }
 
 .step-card h3 {
@@ -291,7 +307,11 @@ h1, h2, h3 {
     font-family: sans-serif;
 }
 
-/* --- SIGNUP FORM --- */
+/* --- SIGNUP FORM SECTION --- */
+#signup {
+    padding: 100px 0;
+}
+
 .signup-form {
     display: flex;
     flex-direction: column;
@@ -299,6 +319,8 @@ h1, h2, h3 {
     gap: 15px;
     max-width: 500px;
     margin: 0 auto;
+    position: relative; 
+    z-index: 2;
 }
 
 .signup-form input {
@@ -389,11 +411,11 @@ footer a {
 /* --- MEDIA QUERIES (MOBILE OPTIMIZATION) --- */
 @media (max-width: 768px) {
     .nav-links {
-        display: none; /* Hide desktop links */
+        display: none; 
     }
 
     .menu-toggle {
-        display: block; /* Show hamburger menu */
+        display: block; 
     }
 
     .logo {
@@ -409,16 +431,11 @@ footer a {
     }
     
     .hero-content {
-        /* Remove the effect of the desktop max-width to let it breathe */
         max-width: 100%;
         padding: 0 10px;
     }
 
     .hero-tagline {
         font-size: 1.2rem;
-    }
-
-    .step-grid {
-        grid-template-columns: 1fr;
     }
 }
